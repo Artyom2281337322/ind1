@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <!-- Хедер -->
+    
     <header class="main-header">
         <div class="container">
             <h1 class="logo">Аудиотека</h1>
@@ -27,7 +27,7 @@
         </div>
     </header>
 
-    <!-- Основной контент -->
+    
     <main class="audio-library">
         <div class="container">
             <h1 class="page-title">Мои треки</h1>
@@ -77,7 +77,7 @@
             </div>
             @endauth
 
-            <!-- Сообщения об успехе/ошибках -->
+           
             @if(session('success'))
             <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
                 {{ session('success') }}
@@ -94,7 +94,7 @@
             </div>
             @endif
 
-            <!-- Фильтры -->
+          
             <div class="filters-section">
                 <form method="GET" action="{{ route('tracks.index') }}">
                     <div class="filters-row">
@@ -129,7 +129,7 @@
                 </form>
             </div>
 
-            <!-- Сетка треков -->
+            
             <div class="tracks-grid">
                 @foreach($tracks as $track)
                 <div class="track-card">

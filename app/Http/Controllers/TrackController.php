@@ -14,12 +14,12 @@ class TrackController extends Controller
     {
         $query = Track::with(['artist', 'genre']);
 
-        // Фильтрация по жанру
+        
         if ($request->has('genre') && $request->genre != 'all') {
             $query->where('genre_id', $request->genre);
         }
 
-        // Фильтрация по исполнителю
+        
         if ($request->has('artist') && $request->artist != 'all') {
             $query->where('artist_id', $request->artist);
         }
@@ -33,7 +33,7 @@ class TrackController extends Controller
 
     public function store(Request $request)
     {
-        // Проверяем авторизацию
+        
         if (!Auth::check()) {
             return redirect()->route('login');
         }
@@ -45,7 +45,7 @@ class TrackController extends Controller
             'duration' => 'required|integer|min:1'
         ]);
 
-        // Создаем трек
+       
         Track::create([
             'title' => $request->title,
             'artist_id' => $request->artist_id,

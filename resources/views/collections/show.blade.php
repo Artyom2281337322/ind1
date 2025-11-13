@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css'])
 </head>
 <body>
-    <!-- Хедер -->
+    
     <header class="main-header">
         <div class="container">
             <h1 class="logo">Аудиотека</h1>
@@ -19,7 +19,7 @@
         </div>
     </header>
 
-    <!-- Основной контент -->
+    
     <main class="collections-container">
         <div class="container">
             <div class="collections-header">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <!-- Список треков в коллекции -->
+            
             <div class="inside-collection">
                 @foreach($tracks as $track)
                     <div class="track-card-horizontal">

@@ -52,23 +52,19 @@ class User extends Authenticatable
         return $this->hasMany(Track::class);
     }
 
-    /**
-     * Получить коллекции пользователя
-     */
+    
     public function collections()
     {
         return $this->hasMany(Collection::class);
     }
 
-    /**
-     * Получить статистику для профиля
-     */
+    
     public function getStats()
     {
         $tracksCount = $this->tracks()->count();
         $collectionsCount = $this->collections()->count();
         $totalDuration = $this->tracks()->sum('duration');
-        $totalHours = round($totalDuration / 3600, 2); // переводим секунды в часы
+        $totalHours = round($totalDuration / 3600, 2); // секунды в часы
 
         return [
             'tracks_count' => $tracksCount,

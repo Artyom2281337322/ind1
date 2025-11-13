@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css'])
 </head>
 <body>
-    <!-- Хедер -->
+   
     <header class="main-header">
         <div class="container">
             <h1 class="logo">Аудиотека</h1>
@@ -25,7 +25,7 @@
         </div>
     </header>
 
-    <!-- Основной контент -->
+    
     <main class="collections-container">
         <div class="container">
             @if($addTrackId)
@@ -40,11 +40,11 @@
                 </div>
             @endif
 
-            <!-- Сетка коллекций -->
+           
             <div class="collections-grid">
                 @foreach($collections as $collection)
                     @if($addTrackId)
-                        <!-- Режим выбора для добавления трека -->
+                        
                         <form action="{{ route('collections.add-track', $collection->id) }}" method="POST" class="collection-card">
                             @csrf
                             <input type="hidden" name="track_id" value="{{ $addTrackId }}">
@@ -59,7 +59,7 @@
                             </div>
                         </form>
                     @else
-                        <!-- Обычный режим просмотра -->
+                       
                         <div class="collection-card">
                             <div class="collection-cover">
                                 <a href="{{ route('collections.show', $collection->id) }}" style="text-decoration: none; color: inherit; display: block;">
@@ -122,7 +122,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно редактирования коллекции -->
+   
     <div id="editModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px;">
             <h3 style="margin-top: 0;">Редактировать коллекцию</h3>
@@ -160,7 +160,7 @@
             document.getElementById('editModal').style.display = 'none';
         }
 
-        // Закрытие модальных окон при клике вне их
+        
         window.onclick = function(event) {
             const createModal = document.getElementById('createModal');
             const editModal = document.getElementById('editModal');
@@ -173,7 +173,7 @@
             }
         }
 
-        // Предотвращаем всплытие события для кнопок редактирования и удаления
+        
         document.addEventListener('DOMContentLoaded', function() {
             const editButtons = document.querySelectorAll('.edit-btn');
             const deleteButtons = document.querySelectorAll('.delete-btn');
@@ -188,7 +188,7 @@
             deleteButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    // confirm уже есть в коде, так что просто останавливаем всплытие
+                    
                 });
             });
         });
